@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>David Crud</h1>
+  <a href="#" routerLink="/item/create/" class="btn btn-success">Create Post</a>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th width="250px">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.price }}</td>
+        <td>
+          <a href="#" [routerLink]="['/item/', item.id, 'view']" class="btn btn-success">View</a>
+          <a href="#" [routerLink]="['/item/', item.id, 'edit']" class="btn btn-info">Edit</a>
+          <button class="btn btn-danger" type="button" (click)="deletePost(item.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
